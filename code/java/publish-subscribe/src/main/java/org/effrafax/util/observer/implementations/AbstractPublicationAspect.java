@@ -34,6 +34,11 @@ public abstract class AbstractPublicationAspect implements PublicationAspect {
 	 */
 	protected void setDeclaringClass(Class<?> declaringClass) {
 		
+		if (declaringClass == null) {
+		
+			throw new IllegalArgumentException("declaringClass should not be null");
+		}
+		
 		this.declaringClass = declaringClass;
 	}
 	
