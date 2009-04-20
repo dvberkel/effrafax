@@ -1,14 +1,14 @@
 package org.effrafax.util.observer;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.assertTrue;
 
-import org.junit.Test;
-
-import org.effrafax.util.observer.interfaces.PublicationAspect;
 import org.effrafax.util.observer.implementations.AbstractPublicationAspect;
+import org.effrafax.util.observer.interfaces.PublicationAspect;
+import org.effrafax.util.observer.mock.ASubAspect;
+import org.effrafax.util.observer.mock.AnAspect;
+import org.junit.Test;
 
 public class AbstractPublicationAspectTest {
 	
@@ -44,17 +44,5 @@ public class AbstractPublicationAspectTest {
 		PublicationAspect superAspect = aSubAspect.getSuperAspect();
 		
 		assertTrue(superAspect == aSubAspect.getSuperAspect());	
-	}
-	
-	private class AnAspect extends AbstractPublicationAspect 
-		implements PublicationAspect 
-	{
-		
-		/* Mock implementation of the PublicationAspect interface */
-	}
-	
-	private class ASubAspect extends AnAspect implements PublicationAspect {
-		
-		/* Mock implementation of the PublicationAspect interface */
 	}
 }
