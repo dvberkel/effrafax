@@ -7,7 +7,7 @@ package org.effrafax.util.observer.implementations;
  *
  * @see org.effrafax.util.observer.interfaces.PublicationAspect
  */
-public abstract class DelegatePublicationAspect 
+public class DelegatePublicationAspect 
 	extends AbstractPublicationAspect 
 {
 	
