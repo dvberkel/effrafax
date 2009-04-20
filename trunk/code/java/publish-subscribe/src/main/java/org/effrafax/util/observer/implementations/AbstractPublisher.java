@@ -26,7 +26,7 @@ public abstract class AbstractPublisher implements Publisher {
 	public AbstractPublisher() {
 		
 		aspectToSubscribers = new HashMap<PublicationAspect, List<Subscriber>>();
-		this.setPublisher(publisher);
+		this.setPublisher(this);
 	}
 	
 	protected void setPublisher(Publisher publisher) {
@@ -100,6 +100,12 @@ public abstract class AbstractPublisher implements Publisher {
 			
 				subscriber.update(publisher, aspect);
 			}
+		}
+		
+		PublicationAspect superAspect = aspect.getSuperAspect();
+		if (superAspect != null) {
+			
+			publish(superAspect);
 		}
 	}
 
