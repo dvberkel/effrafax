@@ -3,7 +3,6 @@ package org.effrafax.util.observer.implementations;
 import java.lang.InstantiationException;
 import java.lang.IllegalAccessException;
 import java.lang.IllegalArgumentException;
-import java.lang.reflect.InvocationTargetException;
 
 import org.effrafax.util.observer.interfaces.PublicationAspect;
 
