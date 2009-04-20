@@ -14,8 +14,22 @@ exception-test provides an interface and a class in package `org.effrafax.test`
 
 == Usage ==
 
-The `ExceptionTester` class has a public static method `testForException`. This method has two arguments of type `Class<?>` and `ExceptionInvoker`.
+The `ExceptionTester` class has a public static method `testForException`. This method has two arguments of type `Class<?>` and `ExceptionInvoker`. The `invoke` method of `ExceptionInvoker` is called by `testForException`.
+It is expected that this call will throw an exception which is of the same class as specified. 
 
 == Example ==
 
-This needs an explanation.
+In the following example `ExceptionTester` is used to test itself. The arguments of `testForException` should not be `null`. Via an anonymous class instantiation an implentation of ExceptionInvoker is given.
+{{{
+ExceptionTester.testForException(
+    IllegalArgumentException.class, 
+    new ExceptionInvoker() {
+
+        @Override
+        public void invoke() throws Exception {
+
+            ExceptionTester.testForException(null, null);			
+        }				
+    }
+);
+}}}
