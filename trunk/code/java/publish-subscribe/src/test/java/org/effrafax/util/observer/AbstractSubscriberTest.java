@@ -6,6 +6,7 @@ package org.effrafax.util.observer;
 import org.effrafax.test.ExceptionInvoker;
 import org.effrafax.test.ExceptionTester;
 import org.effrafax.util.observer.implementations.AbstractSubscriber;
+import org.effrafax.util.observer.interfaces.PublicationAspect;
 import org.effrafax.util.observer.interfaces.Publisher;
 import org.effrafax.util.observer.interfaces.Subscriber;
 import org.junit.Test;
@@ -74,19 +75,25 @@ public class AbstractSubscriberTest {
 						new Publisher() {
 
 							@Override
-							public void attach(Subscriber subscriber) {
+							public void attach(
+								PublicationAspect aspect,
+								Subscriber subscriber
+							) {
 								
 								/* This stub is for testing only */
 							}
 
 							@Override
-							public void detach(Subscriber subscriber) {
+							public void detach(
+									PublicationAspect aspect,
+									Subscriber subscriber
+								) {
 								
 								/* This stub is for testing only */
 							}
 
 							@Override
-							public void publish() {
+							public void publish(PublicationAspect aspect) {
 								
 								/* This stub is for testing only */
 							}
