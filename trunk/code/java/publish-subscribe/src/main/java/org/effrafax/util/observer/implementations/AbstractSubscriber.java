@@ -19,6 +19,7 @@ public abstract class AbstractSubscriber implements Subscriber {
 	
 	private Map<PublicationAspect, PublicationHandler> aspectToHandler = null;
 	
+	/* A reference to the object which will accept the publication. */
 	private Subscriber subscriber = null;
 	
 	public AbstractSubscriber() {
