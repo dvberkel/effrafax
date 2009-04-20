@@ -7,10 +7,11 @@ import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.assertTrue;
 
+import org.junit.Test;
+
 import org.effrafax.util.observer.interfaces.PublicationAspect;
 import org.effrafax.util.observer.mock.ADelegateSubAspect;
 import org.effrafax.util.observer.mock.AnDelegateAspect;
-import org.junit.Test;
 
 
 /**

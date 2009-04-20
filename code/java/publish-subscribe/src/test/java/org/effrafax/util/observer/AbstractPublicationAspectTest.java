@@ -4,11 +4,12 @@ import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.assertTrue;
 
+import org.junit.Test;
+
 import org.effrafax.util.observer.implementations.AbstractPublicationAspect;
 import org.effrafax.util.observer.interfaces.PublicationAspect;
 import org.effrafax.util.observer.mock.ASubAspect;
 import org.effrafax.util.observer.mock.AnAspect;
-import org.junit.Test;
 
 public class AbstractPublicationAspectTest {
 	
