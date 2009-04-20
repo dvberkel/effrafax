@@ -1,0 +1,21 @@
+#summary Description of exception-test.
+
+= Introduction =
+
+exception-test provides a testing framework. This framework makes it possible to test if methods throw exceptions.
+
+= Details =
+
+== Package Detail ==
+
+exception-test provides an interface and a class in package `org.effrafax.test`
+  * `interface ExceptionInvoker`
+  * `class ExceptionTester`
+
+== Usage ==
+
+The `ExceptionTester` class has a public static method `testForException`. This method has two arguments of type `Class<?>` and `ExceptionInvoker`.
+
+== Example ==
+
+This needs an explanation.
