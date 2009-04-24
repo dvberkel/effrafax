@@ -2,8 +2,7 @@
 
 = Introduction =
 
-discrete provides a utility to create `Iterable`s of `Collection`s.
-
+discrete provides a utility iterate over the subsets of a `Collection`. A _subset_ is a `List`.
 
 = Details =
 
@@ -17,5 +16,11 @@ The package provides three classes. The can be found in the following packages
     * `class` SubsetIterator
 
 == Usage ==
+
+The `Subsets` class provides static methods which return `Iterable`s. These objects iterate over subsets of the collection and can be uses in the "foreach" loop. The static methods are
+
+|| *Method*     || *Type of subset*    ||
+|| `kSubsetsOf` || subsets of size `k` ||
+|| `subsetsOf`  || *all* subsets       ||
 
 == Example ==
