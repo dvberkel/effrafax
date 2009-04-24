@@ -1,0 +1,21 @@
+#summary Description of discrete.
+
+= Introduction =
+
+discrete provides a utility to create `Iterable`s of `Collection`s.
+
+
+= Details =
+
+== Package Detail ==
+
+The package provides three classes. The can be found in the following packages
+  * org.effrafax.discrete
+    * `class` Subsets
+  * org.effrafax.discrete.util
+    * `class` KSubsetIterator
+    * `class` SubsetIterator
+
+== Usage ==
+
+== Example ==
