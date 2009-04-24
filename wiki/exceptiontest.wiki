@@ -19,7 +19,7 @@ It is expected that this call will throw an exception which is of the same class
 
 == Example ==
 
-In the following example `ExceptionTester` is used to test itself. The arguments of `testForException` should not be `null`. Via an anonymous class instantiation an implentation of ExceptionInvoker is given.
+In the following example `ExceptionTester` is used to test itself. The arguments of `testForException` should not be `null`. Via an anonymous class instantiation an implentation of `ExceptionInvoker` is given.
 {{{
 ExceptionTester.testForException(
     IllegalArgumentException.class, 
