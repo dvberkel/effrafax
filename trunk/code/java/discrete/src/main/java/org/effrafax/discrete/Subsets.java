@@ -9,11 +9,21 @@ import org.effrafax.discrete.util.SubsetIterator;
 
 
 /**
+ * This class provides a convenience methods to create iterable forms of various 
+ * subset of collections.
+ * A subset is a List<E>.
+ *  
  * @author dwanrooy
  *
  */
 public class Subsets {
 	
+	/**
+	 * Creates an iterable for all the subsets of the {@code collection}.
+	 * @param <E> The generic type specifier.
+	 * @param collection The collection to form subsets of.
+	 * @return An Iterable of subsets of the {@code collection}.
+	 */
 	public static <E> Iterable<List<E>> subsetsOf(final Collection<E> collection) {
 		
 		if (collection == null) {
@@ -31,6 +41,15 @@ public class Subsets {
 		};
 	}
 	
+	
+	/**
+	 * Creates an iterable for all the subsets of size {@code k} of the 
+	 * {@code collection}.
+	 * @param <E> The generic type specifier.
+	 * @param collection The collection to form subsets of.
+	 * @parem k the size of the subsets to return.
+	 * @return An Iterable of subsets of size {@code k} of the {@code collection}.
+	 */
 	public static <E> Iterable<List<E>> kSubsetsOf(final Collection<E> collection, final int k) {
 		
 		if (collection == null) {
