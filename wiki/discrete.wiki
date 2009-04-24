@@ -44,8 +44,8 @@ This code yields
 
 The next example is not very different. Is shows the usage of `subsetsOf`.
 {{{
-Collection<Integer> numbers = Arrays.asList(37, 51, 168);	
-for (List<Integer> subset : Subsets.subsetsOf(numbers)) {
+Collection<String> names = Arrays.asList("Alice", "Bob", "Charlie");	
+for (List<String> subset : Subsets.subsetsOf(names)) {
 
     System.out.println(subset);
 }
@@ -53,11 +53,11 @@ for (List<Integer> subset : Subsets.subsetsOf(numbers)) {
 It yields
 {{{
 []
-[37]
-[51]
-[168]
-[37, 51]
-[37, 168]
-[51, 168]
-[37, 51, 168]
+[Alice]
+[Bob]
+[Charlie]
+[Alice, Bob]
+[Alice, Charlie]
+[Bob, Charlie]
+[Alice, Bob, Charlie]
 }}}
