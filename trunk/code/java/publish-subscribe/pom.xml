@@ -37,6 +37,7 @@
 				<groupId>${groupId}</groupId>
 				<artifactId>exception-test</artifactId>
 				<version>1.0</version>
+				<scope>test</scope>
 		</dependency>
 	</dependencies>
 	
