@@ -111,4 +111,51 @@ public abstract class AbstractPublicationAspect implements PublicationAspect {
 		
 		return superAspect;		
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 37;
+		int result = 1;
+		
+		result = prime * result
+				+ ((declaringClass == null) ? 0 : declaringClass.hashCode());
+		
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+
+			return true;			
+		}
+		if (obj == null) {
+			
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			
+			return false;
+		}
+		
+		AbstractPublicationAspect other = (AbstractPublicationAspect) obj;
+		if (declaringClass == null) {
+			
+			if (other.declaringClass != null) {
+				
+				return false;
+			}
+		} else if (!declaringClass.equals(other.declaringClass)) {
+			
+			return false;
+		}
+
+		return true;
+	}
 }
