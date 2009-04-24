@@ -24,3 +24,40 @@ The `Subsets` class provides static methods which return `Iterable`s. These obje
 || `subsetsOf`  || *all* subsets       ||
 
 == Example ==
+
+The following code illustrates typical usage of the methods mentioned in the Usage section.
+
+The code example shows the usage of `kSubsetsOf`.
+{{{
+Collection<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+for (List<String> subset : Subsets.kSubsetsOf(names, 2)) {
+
+    System.out.println(subset);
+}
+}}}
+This code yields
+{{{
+[Alice, Bob]
+[Alice, Charlie]
+[Bob, Charlie]
+}}}
+
+The next example is not very different. Is shows the usage of `subsetsOf`.
+{{{
+Collection<Integer> numbers = Arrays.asList(37, 51, 168);	
+for (List<Integer> subset : Subsets.subsetsOf(numbers)) {
+
+    System.out.println(subset);
+}
+}}}
+It yields
+{{{
+[]
+[37]
+[51]
+[168]
+[37, 51]
+[37, 168]
+[51, 168]
+[37, 51, 168]
+}}}
