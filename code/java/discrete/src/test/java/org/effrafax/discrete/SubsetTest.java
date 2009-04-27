@@ -83,6 +83,22 @@ public class SubsetTest {
 	}
 	
 	@Test
+	public void testPermutationFailure() {
+		
+		ExceptionTester.testForException(
+			IllegalArgumentException.class, 
+			new ExceptionInvoker() {
+
+				@Override
+				public void invoke() throws Exception {
+					
+					Subsets.permutationsOf(null);
+				}				
+			}
+		);
+	}
+	
+	@Test
 	public void testEmptyKSubset() {
 		
 		final List<Integer> testCollection = Collections.emptyList();
@@ -113,6 +129,17 @@ public class SubsetTest {
 		}
 		
 		if (count != 1) {
+			
+			fail();
+		}
+	}
+	
+	@Test
+	public void testEmptyPermutation() {
+		
+		final List<Integer> testCollection = Collections.emptyList();
+		
+		for (@SuppressWarnings("unused") List<Integer> permutation : Subsets.permutationsOf(testCollection)) {
 			
 			fail();
 		}
@@ -171,6 +198,23 @@ public class SubsetTest {
 		}
 		
 		if (count != 2) {
+			
+			fail();
+		}
+	}
+	
+	@Test
+	public void testSingletonPermutation() {
+		
+		final List<Integer> testCollection = Collections.singletonList(0);
+		
+		int count = 0;
+		for (@SuppressWarnings("unused") List<Integer> permutation : Subsets.permutationsOf(testCollection)) {
+			
+			count++;
+		}
+		
+		if (count != 1) {
 			
 			fail();
 		}
