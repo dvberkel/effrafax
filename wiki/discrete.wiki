@@ -13,8 +13,8 @@ The package provides four classes. The can be found in the following packages
     * `class` Subsets
   * org.effrafax.discrete.util
     * `class` KSubsetIterator
-    * `class` SubsetIterator
-    * `class` PermutationIterator
+    * `class` !SubsetIterator
+    * `class` !PermutationIterator
 
 == Usage ==
 
