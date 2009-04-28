@@ -93,4 +93,27 @@ public class PermutationIteratorTest {
 		assertFalse(iterator.hasNext());
 	}
 	
+	@Test
+	public void testComplexCollection() {
+		
+		Collection<Integer> testCollection = Arrays.asList(0, 1, 2);
+		int[][] expected = new int[][] {
+			{0,1,2}, {0,2,1}, {1,0,2}, {1,2,0}, {2,0,1}, {2,1,0}
+		};
+		
+		Iterator<List<Integer>> iterator = 
+			new PermutationIterator<Integer>(testCollection);
+		for (int index = 0; index < expected.length; index++) {
+		
+			assertTrue(iterator.hasNext());
+
+			List<Integer> list = iterator.next();
+			System.out.println(list);
+			for (int listIndex = 0; listIndex < list.size(); listIndex++) {
+				
+				assertEquals(expected[index][listIndex], (int)list.get(listIndex));
+			}
+		}
+	}
+	
 }
