@@ -108,7 +108,6 @@ public class PermutationIteratorTest {
 			assertTrue(iterator.hasNext());
 
 			List<Integer> list = iterator.next();
-			System.out.println(list);
 			for (int listIndex = 0; listIndex < list.size(); listIndex++) {
 				
 				assertEquals(expected[index][listIndex], (int)list.get(listIndex));
