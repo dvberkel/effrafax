@@ -92,11 +92,11 @@ public class PermutationIterator<E> implements Iterator<List<E>> {
 			
 			/* reverse tail */
 			swapIndex++;
-			int[] tail = Arrays.copyOfRange(current, swapIndex, current.length - 1);
+			int[] tail = Arrays.copyOfRange(current, swapIndex, current.length);
 			for (index = 0; index < tail.length; index++) {
 				
 				current[swapIndex + index] = tail[(tail.length - 1) - index];
-			}			
+			}
 		}
 		
 		return Subsets.collect(original, copy);
