@@ -15,14 +15,14 @@ The following classes our provided by publisher-subscribe.
   * org.effrafax.util.observer
     * `class` PublicationHandlerChain
   * org.effrafax.util.observer.interfaces
-    * `class` !PublicationAspect
-    * `class` !PublicationHandler
-    * `class` !Publisher
-    * `class` !Subscriber
+    * `interface` !PublicationAspect
+    * `interface` !PublicationHandler
+    * `interface` Publisher
+    * `interface` Subscriber
   * org.effrafax.util.observer.implementations
-    * `class` !AbstractPublicationAspect
-    * `class` !AbstractPublisher
-    * `class` !AbstractSubscriber
+    * `abstract class` !AbstractPublicationAspect
+    * `abstract class` !AbstractPublisher
+    * `abstract class` !AbstractSubscriber
     * `class` !DelegatePublicationAspect
     * `class` !DelegatePublisher
     * `class` !DelegateSubscriber
