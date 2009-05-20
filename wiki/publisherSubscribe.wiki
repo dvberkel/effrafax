@@ -1,4 +1,4 @@
-description of publisher-subscribe.
+#summary Description of publisher-subscribe.
 
 = Introduction =
 
