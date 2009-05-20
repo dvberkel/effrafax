@@ -13,7 +13,7 @@ In this implementation It is possible to publish a detailed publication which wi
 The following classes our provided by publisher-subscribe.
 
   * org.effrafax.util.observer
-    * `class` PublicationHandlerChain
+    * `class` !PublicationHandlerChain
   * org.effrafax.util.observer.interfaces
     * `interface` !PublicationAspect
     * `interface` !PublicationHandler
