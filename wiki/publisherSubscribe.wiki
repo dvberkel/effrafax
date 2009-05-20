@@ -1,0 +1,8 @@
+publisher-subscribe provides a custom implementation of the Observer pattern.
+
+= Introduction =
+
+The Observer pattern is a well know way to loosely couple the domain with the environment.  
+
+
+= Details =
