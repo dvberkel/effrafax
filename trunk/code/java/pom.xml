@@ -13,5 +13,6 @@
 		<module>discrete</module>
 		<module>exception-test</module>
 		<module>publish-subscribe</module>
+		<module>game</module>
 	</modules>	
 </project>
