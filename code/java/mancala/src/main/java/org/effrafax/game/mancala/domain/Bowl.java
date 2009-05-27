@@ -38,7 +38,7 @@ public interface Bowl {
 	 *  
 	 * @throws IllegalStateException
 	 */
-	public void assignNextBowl() throws IllegalStateException;
+	public void assignNextBowl(Bowl nextBowl) throws IllegalStateException;
 	
 	/**
 	 * This method performs the action for this {@code Bowl} when a {@code Heap} is 
