@@ -30,15 +30,32 @@ public interface Bowl {
 	 *
 	 * @return The {@code Bowl} following this {@code Bowl}.
 	 */
-	public Bowl nextBowl();
+	public Bowl getNextBowl();
 	
 	/**
 	 * Sets the next {@code Bowl} for this {@code Bowl}. An exception is thrown
-	 * if the next bowl is already assigned.
-	 *  
-	 * @throws IllegalStateException
+	 * if the next bowl is already set.
+	 *
+	 * @param nextBowl The {@code Bowl} following this {@code Bowl}.
+	 * @throws IllegalStateException if the next bowl is already set.
 	 */
-	public void assignNextBowl(Bowl nextBowl) throws IllegalStateException;
+	public void setNextBowl(Bowl nextBowl) throws IllegalStateException;
+	
+	/**
+	 * Returns the {@code Bowl} which is opposite to this {@code Bowl}.
+	 * 
+	 * @return The opposite {@code Bowl}.
+	 */
+	public Bowl getOppositeBowl();
+	
+	/**
+	 * Sets the opposite {@code Bowl} for this {@code Bowl}. An exception is thrown
+	 * if the opposite bowl is already set.
+	 * 
+	 * @param oppositeBowl The {@code Bowl} opposite to this {@code Bowl}.
+	 * @throws IllegalStateException if the opposite bowl is already set.
+	 */
+	public void setOppositeBowl(Bowl oppositeBowl) throws IllegalStateException;
 	
 	/**
 	 * This method performs the action for this {@code Bowl} when a {@code Heap} is 
