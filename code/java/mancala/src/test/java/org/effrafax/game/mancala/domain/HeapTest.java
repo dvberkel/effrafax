@@ -43,7 +43,8 @@ public class HeapTest {
 		
 		Heap addedHeap = new Heap(3);
 		heap.addStone(addedHeap);
-		assertEquals(6, heap.countStones());		
+		assertEquals(6, heap.countStones());
+		assertEquals(0, addedHeap.countStones());
 	}
 	
 	/**
