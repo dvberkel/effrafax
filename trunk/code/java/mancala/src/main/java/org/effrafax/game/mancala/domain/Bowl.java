@@ -33,6 +33,14 @@ public interface Bowl {
 	public Bowl nextBowl();
 	
 	/**
+	 * Sets the next {@code Bowl} for this {@code Bowl}. An exception is thrown
+	 * if the next bowl is already assigned.
+	 *  
+	 * @throws IllegalStateException
+	 */
+	public void assignNextBowl() throws IllegalStateException;
+	
+	/**
 	 * This method performs the action for this {@code Bowl} when a {@code Heap} is 
 	 * distributed across all {@code Bowl}s.
 	 * 
