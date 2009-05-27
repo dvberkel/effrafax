@@ -22,9 +22,9 @@ public class HeapTest {
 		
 		int numberOfStones = 1;
 		
-		assertEquals(0, (new Heap()).countStones());
+		assertEquals(0, (new Heap(Player.white)).countStones());
 		
-		assertEquals(numberOfStones, (new Heap(numberOfStones)).countStones());
+		assertEquals(numberOfStones, (new Heap(Player.white, numberOfStones)).countStones());
 	}
 	
 	/**
@@ -33,7 +33,7 @@ public class HeapTest {
 	@Test
 	public void testAddStone() {
 		
-		Heap heap = new Heap();
+		Heap heap = new Heap(Player.white);
 		
 		heap.addStone();
 		assertEquals(1, heap.countStones());
@@ -41,7 +41,7 @@ public class HeapTest {
 		heap.addStone(2);
 		assertEquals(3, heap.countStones());
 		
-		Heap addedHeap = new Heap(3);
+		Heap addedHeap = new Heap(Player.white, 3);
 		heap.addStone(addedHeap);
 		assertEquals(6, heap.countStones());
 		assertEquals(0, addedHeap.countStones());
@@ -53,7 +53,7 @@ public class HeapTest {
 	@Test
 	public void testRemoveStone() {
 		
-		Heap heap = new Heap(3);
+		Heap heap = new Heap(Player.white, 3);
 		
 		heap.removeStone();
 		assertEquals(2, heap.countStones());
@@ -70,7 +70,16 @@ public class HeapTest {
 		
 		try {
 			
-			new Heap(-1);
+			new Heap(null);
+			fail();
+		} catch (IllegalArgumentException iae) {
+			
+			return; /* This exception is expected */
+		}
+		
+		try {
+			
+			new Heap(Player.white, -1);
 			fail();
 		} catch (IllegalArgumentException iae) {
 			
@@ -86,7 +95,7 @@ public class HeapTest {
 		
 		try {
 			
-			(new Heap()).addStone(-1);
+			(new Heap(Player.white)).addStone(-1);
 		} catch (IllegalArgumentException iae) {
 			
 			return; /* This exception is expected */
@@ -101,7 +110,7 @@ public class HeapTest {
 		
 		try {
 			
-			(new Heap()).removeStone(-1);
+			(new Heap(Player.white)).removeStone(-1);
 		} catch (IllegalArgumentException iae) {
 			
 			return; /* This exception is expected */
@@ -109,7 +118,7 @@ public class HeapTest {
 		
 		try {
 			
-			(new Heap()).removeStone(1);
+			(new Heap(Player.white)).removeStone(1);
 		} catch (IllegalStateException iae) {
 			
 			return; /* This exception is expected */
