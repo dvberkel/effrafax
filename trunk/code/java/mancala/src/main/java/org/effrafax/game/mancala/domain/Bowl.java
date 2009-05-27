@@ -12,6 +12,15 @@ package org.effrafax.game.mancala.domain;
 public interface Bowl {
 	
 	/**
+	 * Initializes this {@code Bowl}. The owning player and the number of stones
+	 * will be set for this {@code Bowl}.
+	 * 
+	 * @param owner The {@code Player} who will own this {@code Bowl}
+	 * @param numberOfStones The number of stones this {@code Bowl} will contain.
+	 */
+	public void initialize(Player owner, int numberOfStones);
+	
+	/**
 	 * Counts the number of stones in this {@code Bowl}s {@code Heap}.
 	 * 
 	 * @return The number of stones in the {@code Heap} of this {@code Bowl}.
