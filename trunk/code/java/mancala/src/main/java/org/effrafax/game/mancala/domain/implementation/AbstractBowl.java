@@ -20,8 +20,6 @@ public abstract class AbstractBowl implements Bowl {
 		"this bowl is already assigned.";
 	private static final String EXCEPTION_BOWLNULL = 
 		"this bowl should be non-null.";
-	private static final String EXCEPTION_NOTOVERRIDEN = 
-		"this method should be overriden.";
 	private static final String EXCEPTION_OWNERASSIGNED = 
 		"the owner is already assigned.";
 	private static final String EXCEPTION_OWNERNULL = 
@@ -32,10 +30,15 @@ public abstract class AbstractBowl implements Bowl {
 	private Bowl nextBowl = null;
 	private Bowl oppositeBowl = null;
 	
+	public AbstractBowl(Player owner) {
+		
+		this(owner, 0);
+	}
+	
 	public AbstractBowl(Player owner, int numberOfStones) {
 		
 		setOwner(owner);
-		setHeap(new Heap(numberOfStones));
+		setHeap(new Heap(owner, numberOfStones));
 	}
 	
 	/**
@@ -88,7 +91,9 @@ public abstract class AbstractBowl implements Bowl {
 	public Heap captureHeap() {
 		
 		Heap capturedHeap = heap;
-		heap = new Heap();
+		capturedHeap.changeOwner();
+		
+		heap = new Heap(getOwner());
 		
 		return capturedHeap;
 	}
@@ -127,15 +132,6 @@ public abstract class AbstractBowl implements Bowl {
 	public Player getOwner() {
 
 		return owner;
-	}
-
-	/* (non-Javadoc)
-	 * @see org.effrafax.game.mancala.domain.Bowl#receiveHeap(org.effrafax.game.mancala.domain.Heap)
-	 */
-	@Override
-	public void receiveHeap(Heap heap) {
-		
-		throw new IllegalStateException(EXCEPTION_NOTOVERRIDEN);
 	}
 
 	/* (non-Javadoc)
