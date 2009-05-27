@@ -79,7 +79,20 @@ public class Heap {
 
 		addStone(1);
 	}
-
+	
+	/**
+	 * Adds all the stones of {@code heap} to this {@code Heap}.
+	 * 
+	 * @param heap The heap which stones get added to this {@code Heap}.
+	 */
+	public void addStone(Heap heap) {
+		
+		int numberOfStones = heap.countStones();
+		heap.removeStone(numberOfStones);
+		
+		this.addStone(numberOfStones);
+	}
+	
 	/**
 	 * Removes a number of stones from this {@code Heap}. An exception is thrown in
 	 * the following circumstances:
