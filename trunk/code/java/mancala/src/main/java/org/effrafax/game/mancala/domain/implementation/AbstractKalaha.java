@@ -17,6 +17,11 @@ public abstract class AbstractKalaha extends AbstractBowl implements Kalaha {
 	private static final String EXCEPTION_NOSUCH = 
 		"there is no such a thing for a kalaha.";
 	
+	public AbstractKalaha() {
+		
+		super();
+	}
+	
 	public AbstractKalaha(Player owner) {
 		
 		this(owner, 0);
