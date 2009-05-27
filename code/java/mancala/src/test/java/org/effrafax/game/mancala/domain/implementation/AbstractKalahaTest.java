@@ -3,9 +3,8 @@
  */
 package org.effrafax.game.mancala.domain.implementation;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
-import org.effrafax.game.mancala.domain.Heap;
 import org.effrafax.game.mancala.domain.Player;
 import org.junit.Test;
 
@@ -38,25 +37,5 @@ public class AbstractKalahaTest {
 			
 			/* This is the expected behavior. */
 		}
-	}
-}
-
-class MockKalaha extends AbstractKalaha {
-
-	public MockKalaha(Player owner) {
-		
-		super(owner);
-	}
-
-	public MockKalaha(Player owner, int numberOfStones) {
-		
-		super(owner, numberOfStones);
-	}
-
-	@Override
-	public void receiveHeap(Heap heap) {
-		
-		/* This method is not tested so no implementation is given. */
-		
 	}
 }

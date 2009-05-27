@@ -129,22 +129,3 @@ public class AbstractBowlTest {
 	}
 }
 
-class MockBowl extends AbstractBowl {
-
-	public MockBowl(Player owner) {
-		
-		super(owner);
-	}
-
-	public MockBowl(Player owner, int numberOfStones) {
-
-		super(owner,numberOfStones);
-	}
-
-	@Override
-	public void receiveHeap(Heap heap) {
-		
-		/* This method is not tested here so leave it out. */
-	}
-	
-}
