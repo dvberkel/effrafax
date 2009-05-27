@@ -34,12 +34,14 @@ public interface Bowl {
 	
 	/**
 	 * Sets the next {@code Bowl} for this {@code Bowl}. An exception is thrown
-	 * if the next bowl is already set.
+	 * if the next bowl is already set or when {@code nextBowl} is {@code null}.
 	 *
 	 * @param nextBowl The {@code Bowl} following this {@code Bowl}.
+	 * @throws IllegalArgumentException if {@code nextBowl} is {@code null}.
 	 * @throws IllegalStateException if the next bowl is already set.
 	 */
-	public void setNextBowl(Bowl nextBowl) throws IllegalStateException;
+	public void setNextBowl(Bowl nextBowl) 
+			throws IllegalArgumentException, IllegalStateException;
 	
 	/**
 	 * Returns the {@code Bowl} which is opposite to this {@code Bowl}.
@@ -50,12 +52,15 @@ public interface Bowl {
 	
 	/**
 	 * Sets the opposite {@code Bowl} for this {@code Bowl}. An exception is thrown
-	 * if the opposite bowl is already set.
+	 * if the opposite bowl is already set or when {@code oppositeBowl} is 
+	 * {@code null}.
 	 * 
 	 * @param oppositeBowl The {@code Bowl} opposite to this {@code Bowl}.
+	 * @throws IllegalArgumentException if {@code oppositeBowl} is {@code null}.
 	 * @throws IllegalStateException if the opposite bowl is already set.
 	 */
-	public void setOppositeBowl(Bowl oppositeBowl) throws IllegalStateException;
+	public void setOppositeBowl(Bowl oppositeBowl) 
+			throws IllegalArgumentException, IllegalStateException;
 	
 	/**
 	 * This method performs the action for this {@code Bowl} when a {@code Heap} is 
