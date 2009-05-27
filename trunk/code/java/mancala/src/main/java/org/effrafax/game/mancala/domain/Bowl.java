@@ -4,7 +4,7 @@
 package org.effrafax.game.mancala.domain;
 
 /**
- * This class represents a bowl in the mancala game.
+ * This interface represents a bowl in the mancala game.
  * 
  * @author dwanrooy
  *
