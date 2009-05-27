@@ -30,12 +30,27 @@ public abstract class AbstractBowl implements Bowl {
 	private Bowl nextBowl = null;
 	private Bowl oppositeBowl = null;
 	
+	public AbstractBowl() {
+		
+		/* This constructor is provided for the serviceloader. */
+	}
+	
 	public AbstractBowl(Player owner) {
 		
 		this(owner, 0);
 	}
 	
 	public AbstractBowl(Player owner, int numberOfStones) {
+		
+		initialize(owner, numberOfStones);
+	}
+	
+
+	/* (non-Javadoc)
+	 * @see org.effrafax.game.mancala.domain.Bowl#initialize(org.effrafax.game.mancala.domain.Player, int)
+	 */
+	@Override
+	public void initialize(Player owner, int numberOfStones) {
 		
 		setOwner(owner);
 		setHeap(new Heap(owner, numberOfStones));
