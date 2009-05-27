@@ -15,15 +15,20 @@ public class Heap {
 		"The number of stones should be non-negative.";
 	private static final String EXCEPTION_TOFEW = 
 		"This heap does not contain enough stones.";
+	private static final String EXCEPTION_NONNULL = 
+		"owner should be non null";
 	
 	private int numberOfStones = 0;
+	private Player owner = null;
 	
 	/**
 	 * Returns an empty {@code Heap}.
+	 * 
+	 * @param player The owner of this {@code Heap}.
 	 */
-	public Heap() {
+	public Heap(Player player) {
 		
-		/* Nothing special to do here */
+		this.setOwner(player);
 	}
 	
 	/**
@@ -31,12 +36,13 @@ public class Heap {
 	 * stones should be non-negative, otherwise an IllegalArgumentException is 
 	 * thrown.
 	 *  
+	 * @param player The owner of this {@code Heap}.
 	 * @param numberOfStones The preset number of stones.
 	 * @throws IllegalArgumentException if {@code numberOfStones} is negative.
 	 */
-	public Heap(int numberOfStones) throws IllegalArgumentException {
+	public Heap(Player player, int numberOfStones) throws IllegalArgumentException {
 		
-		this();
+		this(player);
 		this.addStone(numberOfStones);
 	}
 	
@@ -130,5 +136,38 @@ public class Heap {
 	public void removeStone() throws IllegalStateException {
 		
 		removeStone(1);
+	}
+
+	/**
+	 * @return the owner
+	 */
+	public Player getOwner() {
+		
+		return owner;
+	}
+
+	/**
+	 * Setter for the owner of this {@code Heap}. An exception is thrown if 
+	 * {@code owner} is null.
+	 * 
+	 * @param owner the owner to set
+	 * @throws IllegalArgumentException if {@code owner} is null.
+	 */
+	public void setOwner(Player owner) throws IllegalArgumentException {
+		
+		if (owner == null) {
+			
+			throw new IllegalArgumentException(EXCEPTION_NONNULL);
+		}
+		
+		this.owner = owner;
+	}
+	
+	/**
+	 * Changes the ownership of this {@code Heap} to the opponent of the current owner.
+	 */
+	public void changeOwner() {
+		
+		setOwner(getOwner().opponent());
 	}
 }
