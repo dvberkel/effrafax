@@ -5,6 +5,7 @@ package org.effrafax.game.mancala.domain.implementation;
 
 import static org.junit.Assert.*;
 
+import org.effrafax.game.mancala.domain.Heap;
 import org.effrafax.game.mancala.domain.Player;
 import org.junit.Test;
 
@@ -18,7 +19,7 @@ public class AbstractKalahaTest {
 	@Test
 	public void testUnimplementedFailure() {
 		
-		AbstractKalaha kalaha = new AbstractKalaha(Player.white,4){};
+		AbstractKalaha kalaha = new MockKalaha(Player.white,4);
 		
 		try {
 			
@@ -37,14 +38,25 @@ public class AbstractKalahaTest {
 			
 			/* This is the expected behavior. */
 		}
+	}
+}
+
+class MockKalaha extends AbstractKalaha {
+
+	public MockKalaha(Player owner) {
 		
-		try {
-			
-			kalaha.receiveHeap(null);
-			fail();
-		} catch (IllegalStateException ise) {
-			
-			/* This is the expected behavior. */
-		}
+		super(owner);
+	}
+
+	public MockKalaha(Player owner, int numberOfStones) {
+		
+		super(owner, numberOfStones);
+	}
+
+	@Override
+	public void receiveHeap(Heap heap) {
+		
+		/* This method is not tested so no implementation is given. */
+		
 	}
 }

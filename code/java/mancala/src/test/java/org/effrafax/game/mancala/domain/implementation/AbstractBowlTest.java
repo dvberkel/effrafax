@@ -23,7 +23,7 @@ public class AbstractBowlTest {
 	@Test
 	public void testConstructor() {
 				
-		AbstractBowl bowl = new AbstractBowl(Player.white,4) {};
+		AbstractBowl bowl = new MockBowl(Player.white,4);
 		
 		assertEquals(Player.white, bowl.getOwner());
 		assertEquals(4, bowl.countStones());
@@ -37,8 +37,8 @@ public class AbstractBowlTest {
 	@Test
 	public void testNextBowl() {
 		
-		AbstractBowl first  = new AbstractBowl(Player.white,4) {};
-		AbstractBowl second = new AbstractBowl(Player.white,4) {};
+		AbstractBowl first  = new MockBowl(Player.white,4);
+		AbstractBowl second = new MockBowl(Player.white,4);
 		
 		first.setNextBowl(second);
 		assertEquals(second, first.getNextBowl());
@@ -50,8 +50,8 @@ public class AbstractBowlTest {
 	@Test
 	public void testNextBowlFailure() {
 
-		AbstractBowl bowl  = new AbstractBowl(Player.white,4) {};
-		bowl.setNextBowl(new AbstractBowl(Player.white,4) {});
+		AbstractBowl bowl  = new MockBowl(Player.white,4);
+		bowl.setNextBowl(new MockBowl(Player.white,4));
 		
 		try {
 			
@@ -64,7 +64,7 @@ public class AbstractBowlTest {
 
 		try {
 			
-			bowl.setNextBowl(new AbstractBowl(Player.white,4) {});
+			bowl.setNextBowl(new MockBowl(Player.white,4));
 			fail();
 		} catch (IllegalStateException ise) {
 			
@@ -78,7 +78,7 @@ public class AbstractBowlTest {
 	@Test
 	public void testCaptureHeap() {
 		
-		AbstractBowl bowl  = new AbstractBowl(Player.white,4) {};
+		AbstractBowl bowl  = new MockBowl(Player.white,4);
 		
 		Heap capturedHeap = bowl.captureHeap();
 		
@@ -92,8 +92,8 @@ public class AbstractBowlTest {
 	@Test
 	public void testOppositeBowl() {
 		
-		AbstractBowl bowl  = new AbstractBowl(Player.white,4) {};
-		AbstractBowl opposite  = new AbstractBowl(Player.black,4) {};
+		AbstractBowl bowl  = new MockBowl(Player.white,4);
+		AbstractBowl opposite  = new MockBowl(Player.black,4);
 		
 		bowl.setOppositeBowl(opposite);
 		
@@ -106,8 +106,8 @@ public class AbstractBowlTest {
 	@Test
 	public void testOppositeBowlFailure() {
 		
-		AbstractBowl bowl  = new AbstractBowl(Player.white,4) {};
-		bowl.setOppositeBowl(new AbstractBowl(Player.black,4) {});
+		AbstractBowl bowl  = new MockBowl(Player.white,4);
+		bowl.setOppositeBowl(new MockBowl(Player.black,4));
 		
 		try {
 			
@@ -120,27 +120,31 @@ public class AbstractBowlTest {
 		
 		try {
 			
-			bowl.setOppositeBowl(new AbstractBowl(Player.black,4) {});
+			bowl.setOppositeBowl(new MockBowl(Player.black,4));
 			fail();
 		} catch (IllegalStateException ise) {
 			
 			/* This is the expected behavior */
 		}
+	}
+}
+
+class MockBowl extends AbstractBowl {
+
+	public MockBowl(Player owner) {
+		
+		super(owner);
+	}
+
+	public MockBowl(Player owner, int numberOfStones) {
+
+		super(owner,numberOfStones);
+	}
+
+	@Override
+	public void receiveHeap(Heap heap) {
+		
+		/* This method is not tested here so leave it out. */
 	}
 	
-	/**
-	 * Test if receiveHeap throws exceptions.
-	 */
-	@Test
-	public void testReceiveHeapFailure() {
-		
-		try {
-			
-			(new AbstractBowl(Player.white,4) {}).receiveHeap(null);
-			fail();
-		} catch (IllegalStateException ise) {
-			
-			/* This is the expected behavior */
-		}
-	}
 }

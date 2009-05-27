@@ -12,12 +12,15 @@ import org.effrafax.game.mancala.domain.Player;
  * @author dwanrooy
  *
  */
-public class AbstractKalaha extends AbstractBowl implements Kalaha {
+public abstract class AbstractKalaha extends AbstractBowl implements Kalaha {
 	
 	private static final String EXCEPTION_NOSUCH = 
 		"there is no such a thing for a kalaha.";
-	private static final String EXCEPTION_NOTOVERRIDEN =
-		"this method should be overriden.";
+	
+	public AbstractKalaha(Player owner) {
+		
+		this(owner, 0);
+	}
 	
 	public AbstractKalaha(Player owner, int numberOfStones) {
 		
@@ -59,16 +62,4 @@ public class AbstractKalaha extends AbstractBowl implements Kalaha {
 		
 		throw new IllegalStateException(EXCEPTION_NOSUCH);
 	}
-
-	/* (non-Javadoc)
-	 * @see org.effrafax.game.mancala.domain.implementation.AbstractBowl#receiveHeap(org.effrafax.game.mancala.domain.Heap)
-	 */
-	@Override
-	public void receiveHeap(Heap heap) {
-		
-		throw new IllegalStateException(EXCEPTION_NOTOVERRIDEN);
-	}
-	
-	
-
 }
