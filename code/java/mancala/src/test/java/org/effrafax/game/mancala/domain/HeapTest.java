@@ -40,6 +40,10 @@ public class HeapTest {
 		
 		heap.addStone(2);
 		assertEquals(3, heap.countStones());
+		
+		Heap addedHeap = new Heap(3);
+		heap.addStone(addedHeap);
+		assertEquals(6, heap.countStones());		
 	}
 	
 	/**
