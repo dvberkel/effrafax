@@ -31,10 +31,12 @@ public class StandardKalahaTest {
 		Bowl bowl = new AbstractBowl(Player.black, 1) {
 
 			@Override
-			public void receiveHeap(Heap heap) {
+			public boolean receiveHeap(Heap heap) {
 				
 				heap.removeStone();
 				getHeap().addStone();
+				
+				return false;
 			}			
 		};
 		kalaha.setNextBowl(bowl);

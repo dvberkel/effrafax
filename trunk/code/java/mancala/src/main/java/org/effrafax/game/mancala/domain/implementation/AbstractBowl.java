@@ -205,5 +205,16 @@ public abstract class AbstractBowl implements Bowl {
 		
 		this.oppositeBowl = oppositeBowl;
 	}
-	
+
+	/* (non-Javadoc)
+	 * @see org.effrafax.game.mancala.domain.Bowl#play()
+	 */
+	@Override
+	public boolean play() {
+		
+		Heap playingHeap = heap;
+		heap = new Heap(owner,0);
+		
+		return getNextBowl().receiveHeap(playingHeap);
+	}	
 }

@@ -76,8 +76,10 @@ public interface Bowl {
 	 * distributed across all {@code Bowl}s.
 	 * 
 	 * @param heap The {@code Heap} that is distributed.
+	 * @return {@code true} if the an other turn can be made, {@code false} 
+	 * 		otherwise.
 	 */
-	public void receiveHeap(Heap heap);
+	public boolean receiveHeap(Heap heap);
 	
 	/**
 	 * Captures the {@code Heap} of this {@code Bowl}.
@@ -99,4 +101,13 @@ public interface Bowl {
 	 * @return The {@code Kalaha} of the {@code Player} who owns this {@code Bowl}.
 	 */
 	public Kalaha getKahala();
+	
+	/**
+	 * Plays this {@code Bowl}. A play consist of letting the next {@code Bowl}
+	 * recieve the heap of this {@code Bowl}.
+	 * 
+	 * @return {@code true} if the current {@code Player} can take an other
+	 * 		turn, {@code false} otherwise.
+	 */
+	public boolean play();
 }
