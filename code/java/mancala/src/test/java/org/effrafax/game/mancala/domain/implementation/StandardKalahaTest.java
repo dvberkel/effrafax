@@ -25,7 +25,7 @@ public class StandardKalahaTest {
 		
 		Heap heap = new Heap(Player.white,1);
 
-		kalaha.receiveHeap(heap);
+		assertTrue(kalaha.receiveHeap(heap));
 		assertEquals(1,kalaha.countStones());
 
 		Bowl bowl = new AbstractBowl(Player.black, 1) {
@@ -43,7 +43,7 @@ public class StandardKalahaTest {
 		
 		heap = new Heap(Player.black,1);
 
-		kalaha.receiveHeap(heap);
+		assertFalse(kalaha.receiveHeap(heap));
 		assertEquals(1,kalaha.countStones());
 		assertEquals(2,bowl.countStones());	
 	}
