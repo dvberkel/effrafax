@@ -3,7 +3,7 @@
  */
 package org.effrafax.game.mancala;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
@@ -47,6 +47,9 @@ public class MancalaTest {
 		}		
 	}
 	
+	/**
+	 * Test playing bowl.
+	 */
 	@Test
 	public void testPlay() {
 		
@@ -77,5 +80,4 @@ public class MancalaTest {
 			game.endTurn();
 		}		
 	}
-
 }
