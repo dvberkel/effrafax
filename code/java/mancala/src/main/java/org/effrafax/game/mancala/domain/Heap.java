@@ -3,6 +3,8 @@
  */
 package org.effrafax.game.mancala.domain;
 
+import org.effrafax.game.mancala.message.ExceptionMessage;
+
 /**
  * This class represents all the heaps of stones in the mancala game.
  * 
@@ -10,13 +12,6 @@ package org.effrafax.game.mancala.domain;
  * 
  */
 public class Heap {
-	
-	private static final String EXCEPTION_NONNEGATIVE = 
-		"The number of stones should be non-negative.";
-	private static final String EXCEPTION_TOFEW = 
-		"This heap does not contain enough stones.";
-	private static final String EXCEPTION_NONNULL = 
-		"owner should be non null";
 	
 	private int numberOfStones = 0;
 	private Player owner = null;
@@ -69,7 +64,9 @@ public class Heap {
 
 		if (numberOfStones < 0) {
 
-			throw new IllegalArgumentException(Heap.EXCEPTION_NONNEGATIVE);
+			throw new IllegalArgumentException(
+					ExceptionMessage.NON_NEGATIVE.toString()
+			);
 		}
 
 		this.numberOfStones += numberOfStones;
@@ -117,11 +114,13 @@ public class Heap {
 		
 		if (numberOfStones < 0) {
 			
-			throw new IllegalArgumentException(EXCEPTION_NONNEGATIVE);
+			throw new IllegalArgumentException(
+					ExceptionMessage.NON_NEGATIVE.toString()
+			);
 		}
 		if (this.countStones() < numberOfStones) {
 			
-			throw new IllegalStateException(EXCEPTION_TOFEW);
+			throw new IllegalStateException(ExceptionMessage.TO_FEW_STONES.toString());
 		}
 		
 		this.numberOfStones -= numberOfStones;
@@ -157,7 +156,7 @@ public class Heap {
 		
 		if (owner == null) {
 			
-			throw new IllegalArgumentException(EXCEPTION_NONNULL);
+			throw new IllegalArgumentException(ExceptionMessage.NON_NULL.toString());
 		}
 		
 		this.owner = owner;

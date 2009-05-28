@@ -7,15 +7,13 @@ import org.effrafax.game.mancala.domain.Bowl;
 import org.effrafax.game.mancala.domain.Heap;
 import org.effrafax.game.mancala.domain.Kalaha;
 import org.effrafax.game.mancala.domain.Player;
+import org.effrafax.game.mancala.message.ExceptionMessage;
 
 /**
  * @author dwanrooy
  *
  */
 public abstract class AbstractKalaha extends AbstractBowl implements Kalaha {
-	
-	private static final String EXCEPTION_NOSUCH = 
-		"there is no such a thing for a kalaha.";
 	
 	public AbstractKalaha() {
 		
@@ -38,7 +36,9 @@ public abstract class AbstractKalaha extends AbstractBowl implements Kalaha {
 	@Override
 	public Heap captureHeap() {
 		
-		throw new IllegalStateException(EXCEPTION_NOSUCH);
+		throw new IllegalStateException(
+				ExceptionMessage.NO_SUCH_OBJECT_FOR_KALAHA.toString()
+		);
 	}
 
 	/* (non-Javadoc)
@@ -65,7 +65,9 @@ public abstract class AbstractKalaha extends AbstractBowl implements Kalaha {
 	@Override
 	public Bowl getOppositeBowl() {
 		
-		throw new IllegalStateException(EXCEPTION_NOSUCH);
+		throw new IllegalStateException(
+				ExceptionMessage.NO_SUCH_OBJECT_FOR_KALAHA.toString()
+		);
 	}
 
 	/* (non-Javadoc)
