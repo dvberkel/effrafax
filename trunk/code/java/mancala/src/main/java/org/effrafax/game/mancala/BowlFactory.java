@@ -1,9 +1,13 @@
 /**
  * 
  */
-package org.effrafax.game.mancala.domain;
+package org.effrafax.game.mancala;
 
 import java.util.ServiceLoader;
+
+import org.effrafax.game.mancala.domain.Bowl;
+import org.effrafax.game.mancala.domain.Kalaha;
+import org.effrafax.game.mancala.domain.Player;
 
 /**
  * This enum can provide specific implementations of the following classes
