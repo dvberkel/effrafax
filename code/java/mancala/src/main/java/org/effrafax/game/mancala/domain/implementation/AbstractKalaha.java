@@ -67,4 +67,13 @@ public abstract class AbstractKalaha extends AbstractBowl implements Kalaha {
 		
 		throw new IllegalStateException(EXCEPTION_NOSUCH);
 	}
+
+	/* (non-Javadoc)
+	 * @see org.effrafax.game.mancala.domain.implementation.AbstractBowl#playable()
+	 */
+	@Override
+	public boolean playable() {
+
+		return false;
+	}
 }

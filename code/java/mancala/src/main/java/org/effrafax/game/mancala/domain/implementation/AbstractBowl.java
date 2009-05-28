@@ -24,6 +24,8 @@ public abstract class AbstractBowl implements Bowl {
 		"the owner is already assigned.";
 	private static final String EXCEPTION_OWNERNULL = 
 		"owner should be non-null.";
+	private static final String EXCEPTION_NOTPLAYABLE = 
+		"this bowl is not playable.";
 	
 	private Heap heap = null;
 	private Player owner = null;
@@ -212,9 +214,25 @@ public abstract class AbstractBowl implements Bowl {
 	@Override
 	public boolean play() {
 		
+		if (! playable()) {
+			
+			throw new IllegalArgumentException(EXCEPTION_NOTPLAYABLE);
+		}
+		
 		Heap playingHeap = heap;
 		heap = new Heap(owner,0);
 		
 		return getNextBowl().receiveHeap(playingHeap);
-	}	
+	}
+
+	/* (non-Javadoc)
+	 * @see org.effrafax.game.mancala.domain.Bowl#playable()
+	 */
+	@Override
+	public boolean playable() {
+		
+		return countStones() > 0;
+	}
+	
+	
 }

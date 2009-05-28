@@ -104,10 +104,21 @@ public interface Bowl {
 	
 	/**
 	 * Plays this {@code Bowl}. A play consist of letting the next {@code Bowl}
-	 * recieve the heap of this {@code Bowl}.
+	 * recieve the heap of this {@code Bowl}. An exception is thrown is this
+	 * {@code Bowl} is not playable.
 	 * 
 	 * @return {@code true} if the current {@code Player} can take an other
 	 * 		turn, {@code false} otherwise.
+	 * @throws IllegalArgumentException if this {@code Bowl} is not playable.
 	 */
-	public boolean play();
+	public boolean play() throws IllegalArgumentException;
+	
+	/**
+	 * Returns if this {@code Bowl} is playable. A {@code Bowl} is playable if
+	 * it is not a {@code Kalaha} and has non-zero amount of stones.
+	 *  
+	 * @return {@code true} if this {@code Bowl} is playable, {@code false}
+	 * 		othwise.
+	 */
+	public boolean playable();
 }

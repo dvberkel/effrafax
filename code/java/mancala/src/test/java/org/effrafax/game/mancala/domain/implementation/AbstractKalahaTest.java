@@ -3,6 +3,7 @@
  */
 package org.effrafax.game.mancala.domain.implementation;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 import org.effrafax.game.mancala.domain.Player;
@@ -15,6 +16,9 @@ import org.junit.Test;
  */
 public class AbstractKalahaTest {
 	
+	/**
+	 * Test exceptions get thrown.
+	 */
 	@Test
 	public void testUnimplementedFailure() {
 		
@@ -38,4 +42,17 @@ public class AbstractKalahaTest {
 			/* This is the expected behavior. */
 		}
 	}
+	
+	
+	/**
+	 * Test if playable is correctly implemented.
+	 */
+	@Test
+	public void testPlayable() {
+		
+		AbstractKalaha kalaha = new MockKalaha(Player.white);
+		
+		assertFalse(kalaha.playable());
+	}
+
 }
