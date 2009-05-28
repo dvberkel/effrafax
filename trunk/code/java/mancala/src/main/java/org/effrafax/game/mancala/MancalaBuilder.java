@@ -4,6 +4,7 @@
 package org.effrafax.game.mancala;
 
 import org.effrafax.game.mancala.domain.Player;
+import org.effrafax.game.mancala.message.ExceptionMessage;
 
 /**
  * This class is used in the construction of the a mancala game.
@@ -12,11 +13,6 @@ import org.effrafax.game.mancala.domain.Player;
  *
  */
 public class MancalaBuilder {
-	
-	private static final String EXCEPTION_NONPOSITIVE =
-		"the argument should be greater then zero";
-	private static final String EXCEPTION_NONNULL =
-		"the argument should be non-null";
 	
 	/**
 	 * Default values for a MancalaBuilder
@@ -43,10 +39,12 @@ public class MancalaBuilder {
 		
 		if (numberOfBowls < 1) {
 			
-			throw new IllegalArgumentException(EXCEPTION_NONPOSITIVE);
+			throw new IllegalArgumentException(
+					ExceptionMessage.NON_POSITIVE.toString()
+			);
 		}
 		
-		this.numberOfBowls = numberOfBowls;
+		this.numberOfBowls = numberOfBowls;	
 		
 		return this;
 	}
@@ -68,7 +66,9 @@ public class MancalaBuilder {
 		
 		if (numberOfStones < 1) {
 			
-			throw new IllegalArgumentException(EXCEPTION_NONPOSITIVE);
+			throw new IllegalArgumentException(
+					ExceptionMessage.NON_POSITIVE.toString()
+			);
 		}
 		
 		this.numberOfStones = numberOfStones;
@@ -91,7 +91,7 @@ public class MancalaBuilder {
 		
 		if (startPlayer == null) {
 			
-			throw new IllegalArgumentException(EXCEPTION_NONNULL);
+			throw new IllegalArgumentException(ExceptionMessage.NON_NULL.toString());
 		}
 		
 		this.startPlayer = startPlayer;

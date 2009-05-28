@@ -7,6 +7,7 @@ import org.effrafax.game.mancala.domain.Bowl;
 import org.effrafax.game.mancala.domain.Heap;
 import org.effrafax.game.mancala.domain.Kalaha;
 import org.effrafax.game.mancala.domain.Player;
+import org.effrafax.game.mancala.message.ExceptionMessage;
 
 /**
  * This abstract class provides a almost complete implementation of the {@code Bowl}
@@ -15,18 +16,7 @@ import org.effrafax.game.mancala.domain.Player;
  *
  */
 public abstract class AbstractBowl implements Bowl {
-	
-	private static final String EXCEPTION_BOWLASSIGNED = 
-		"this bowl is already assigned.";
-	private static final String EXCEPTION_BOWLNULL = 
-		"this bowl should be non-null.";
-	private static final String EXCEPTION_OWNERASSIGNED = 
-		"the owner is already assigned.";
-	private static final String EXCEPTION_OWNERNULL = 
-		"owner should be non-null.";
-	private static final String EXCEPTION_NOTPLAYABLE = 
-		"this bowl is not playable.";
-	
+
 	private Heap heap = null;
 	private Player owner = null;
 	private Bowl nextBowl = null;
@@ -71,11 +61,15 @@ public abstract class AbstractBowl implements Bowl {
 		
 		if (owner == null) {
 		
-			throw new IllegalArgumentException(EXCEPTION_OWNERNULL);
+			throw new IllegalArgumentException(
+					ExceptionMessage.OWNER_NULL.toString()
+			);
 		}
 		if (this.owner != null) {
 			
-			throw new IllegalStateException(EXCEPTION_OWNERASSIGNED);
+			throw new IllegalStateException(
+					ExceptionMessage.OWNER_ASSIGNED.toString()
+			);
 		}
 		
 		this.owner = owner;
@@ -160,11 +154,11 @@ public abstract class AbstractBowl implements Bowl {
 		
 		if (nextBowl == null) {
 			
-			throw new IllegalArgumentException(EXCEPTION_BOWLNULL);
+			throw new IllegalArgumentException(ExceptionMessage.BOWL_NULL.toString());
 		}		
 		if (this.nextBowl != null) {
 			
-			throw new IllegalStateException(EXCEPTION_BOWLASSIGNED);
+			throw new IllegalStateException(ExceptionMessage.BOWL_ASSIGNED.toString());
 		}
 		
 		this.nextBowl = nextBowl;
@@ -198,11 +192,15 @@ public abstract class AbstractBowl implements Bowl {
 		
 		if (oppositeBowl == null) {
 			
-			throw new IllegalArgumentException(EXCEPTION_BOWLNULL);
+			throw new IllegalArgumentException(
+					ExceptionMessage.BOWL_NULL.toString()
+			);
 		}		
 		if (this.oppositeBowl != null) {
 			
-			throw new IllegalStateException(EXCEPTION_BOWLASSIGNED);
+			throw new IllegalStateException(
+					ExceptionMessage.BOWL_ASSIGNED.toString()
+			);
 		}
 		
 		this.oppositeBowl = oppositeBowl;
@@ -216,7 +214,9 @@ public abstract class AbstractBowl implements Bowl {
 		
 		if (! playable()) {
 			
-			throw new IllegalArgumentException(EXCEPTION_NOTPLAYABLE);
+			throw new IllegalArgumentException(
+					ExceptionMessage.NOT_PLAYABLE.toString()
+			);
 		}
 		
 		Heap playingHeap = heap;

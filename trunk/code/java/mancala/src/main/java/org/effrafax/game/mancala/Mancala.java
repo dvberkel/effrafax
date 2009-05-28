@@ -9,17 +9,13 @@ import java.util.Map;
 
 import org.effrafax.game.mancala.domain.Bowl;
 import org.effrafax.game.mancala.domain.Player;
+import org.effrafax.game.mancala.message.ExceptionMessage;
 
 /**
  * @author dwanrooy
  *
  */
 public class Mancala {
-	
-	private static final String EXCEPTION_BADINTEGER =
-		"the integer should be non-null and non-negative.";
-	private static final String EXCEPTION_NOTPLAYABLE =
-		"the bowl is not playable.";
 	
 	private Player currentPlayer = null;
 	Map<Player, Bowl> startBowlMap = null;
@@ -138,7 +134,9 @@ public class Mancala {
 		
 		if (index == null || index < 0) {
 			
-			throw new IllegalArgumentException(EXCEPTION_BADINTEGER);
+			throw new IllegalArgumentException(
+					ExceptionMessage.NON_NULL_NEGATIVE.toString()
+			);
 		}
 		
 		Bowl bowl = getStartBowlCurrentPlayer();
@@ -166,7 +164,7 @@ public class Mancala {
 		
 		if (! playable(bowl)) {
 			
-			throw new  IllegalStateException(EXCEPTION_NOTPLAYABLE);
+			throw new  IllegalStateException(ExceptionMessage.NOT_PLAYABLE.toString());
 		}
 		
 		if (! bowl.play()) {
