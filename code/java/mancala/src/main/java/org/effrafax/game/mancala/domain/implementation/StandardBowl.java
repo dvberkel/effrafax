@@ -28,7 +28,7 @@ public class StandardBowl extends AbstractBowl {
 	 * @see org.effrafax.game.mancala.domain.implementation.AbstractBowl#receiveHeap(org.effrafax.game.mancala.domain.Heap)
 	 */
 	@Override
-	public void receiveHeap(Heap heap) {
+	public boolean receiveHeap(Heap heap) {
 		
 		assert(heap.countStones() > 0);
 		
@@ -37,7 +37,7 @@ public class StandardBowl extends AbstractBowl {
 		
 		if (heap.countStones() > 0) {
 			
-			getNextBowl().receiveHeap(heap);
+			return getNextBowl().receiveHeap(heap);
 		} else {
 			
 			if (this.countStones() == 1) {
@@ -48,6 +48,8 @@ public class StandardBowl extends AbstractBowl {
 				collectHeap(capturedHeap);
 			}
 		}
+		
+		return false;
 	}
 	
 }

@@ -28,7 +28,7 @@ public class StandardKalaha extends AbstractKalaha {
 	 * @see org.effrafax.game.mancala.domain.implementation.AbstractKalaha#receiveHeap(org.effrafax.game.mancala.domain.Heap)
 	 */
 	@Override
-	public void receiveHeap(Heap heap) {
+	public boolean receiveHeap(Heap heap) {
 		
 		assert(heap.countStones() > 0);
 		
@@ -40,7 +40,9 @@ public class StandardKalaha extends AbstractKalaha {
 		
 		if (heap.countStones() > 0) {
 			
-			getNextBowl().receiveHeap(heap);
+			return getNextBowl().receiveHeap(heap);
 		}
+		
+		return true;
 	}	
 }

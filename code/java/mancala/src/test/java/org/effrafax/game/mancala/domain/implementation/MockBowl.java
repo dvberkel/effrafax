@@ -28,8 +28,9 @@ public class MockBowl extends AbstractBowl {
 	}
 
 	@Override
-	public void receiveHeap(Heap heap) {
+	public boolean receiveHeap(Heap heap) {
 		
-		/* This method is should not be tested so leave it out. */
+		/* This method is should not be tested so no implementation is given. */
+		return false;
 	}
 }

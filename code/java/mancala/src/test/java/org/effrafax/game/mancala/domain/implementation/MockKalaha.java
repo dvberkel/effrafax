@@ -28,9 +28,9 @@ public class MockKalaha extends AbstractKalaha {
 	}
 
 	@Override
-	public void receiveHeap(Heap heap) {
+	public boolean receiveHeap(Heap heap) {
 
-		/* This method is should not betested so no implementation is given. */
-
+		/* This method is should not be tested so no implementation is given. */
+		return false;
 	}
 }
