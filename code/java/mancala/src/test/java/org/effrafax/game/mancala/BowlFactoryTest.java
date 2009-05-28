@@ -1,10 +1,13 @@
 /**
  * 
  */
-package org.effrafax.game.mancala.domain;
+package org.effrafax.game.mancala;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import org.effrafax.game.mancala.domain.Bowl;
+import org.effrafax.game.mancala.domain.Kalaha;
+import org.effrafax.game.mancala.domain.Player;
 import org.junit.Test;
 
 
