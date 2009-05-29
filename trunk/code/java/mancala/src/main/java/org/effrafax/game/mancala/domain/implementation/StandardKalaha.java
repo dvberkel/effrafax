@@ -14,6 +14,12 @@ import org.effrafax.game.mancala.domain.Player;
  */
 public class StandardKalaha extends AbstractKalaha {
 	
+	public StandardKalaha() {
+		
+		/* default constructor provided for the service loader */
+	}
+
+
 	public StandardKalaha(Player owner) {
 		
 		super(owner);
