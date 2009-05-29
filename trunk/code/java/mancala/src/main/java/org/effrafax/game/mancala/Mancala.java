@@ -4,6 +4,7 @@
 package org.effrafax.game.mancala;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -172,5 +173,27 @@ public class Mancala {
 			/* We do not get to take another turn */
 			endTurn();
 		}
-	}	
+	}
+	
+	public Map<Player, List<Integer>> getStonesPerPlayer() {
+		
+		Map<Player,List<Integer>> stonesPerPlayer = 
+				new HashMap<Player,List<Integer>>();
+		
+		for (Player player: Player.values()) {
+			
+			List<Integer> stones = new ArrayList<Integer>();
+
+			Bowl bowl = getStartBowlMap().get(player);
+			while(bowl.getOwner().equals(player)) {
+				
+				stones.add(bowl.countStones());
+				bowl = bowl.getNextBowl();
+			}
+			
+			stonesPerPlayer.put(player, stones);
+		}
+		
+		return stonesPerPlayer;
+	}
 }
