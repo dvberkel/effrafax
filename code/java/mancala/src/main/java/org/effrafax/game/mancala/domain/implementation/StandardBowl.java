@@ -13,7 +13,12 @@ import org.effrafax.game.mancala.domain.Player;
  *
  */
 public class StandardBowl extends AbstractBowl {
-
+	
+	public StandardBowl() {
+		
+		/* default constructor provided for the service loader */
+	}
+	
 	public StandardBowl(Player owner) {
 
 		super(owner);
