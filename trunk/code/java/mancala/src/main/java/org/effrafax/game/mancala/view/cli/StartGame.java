@@ -189,6 +189,9 @@ public class StartGame {
 		System.out.println(); /* Newline after the options. */
 	}
 	
+	/**
+	 * Shows the result of the started game.
+	 */
 	private void showResult() {
 		
 		Map<Player, Integer> score = getMancala().score();
