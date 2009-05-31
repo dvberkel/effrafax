@@ -208,10 +208,10 @@ public class StartGame {
 			);
 		} else {
 			
-			/* Black won the game */
+			/* whiteScore < blackScore */
 			
 			System.out.printf("Black won by %d stones", 
-					whiteScore - blackScore
+					blackScore - whiteScore
 			);
 		}		
 	}
