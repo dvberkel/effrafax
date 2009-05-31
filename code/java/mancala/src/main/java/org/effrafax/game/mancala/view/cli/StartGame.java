@@ -99,14 +99,82 @@ public class StartGame {
 		}
 	}
 	
+	/**
+	 * Outputs a representation of the current status to the standard out.
+	 */
 	private void showStatus() {
+
+		showCurrentPlayer();
+		showBoard();
+		showOptions();
+	}
+	
+	/**
+	 * Outputs the current {@code Player} to the standard out.
+	 */
+	private void showCurrentPlayer() {
 		
-		Mancala mancala = getMancala();
+		System.out.printf("Current player: %s%n%n", 
+				getMancala().getCurrentPlayer()
+		);
+	}
+	
+	/**
+	 * Outputs the current board to the standard out.
+	 */
+	private void showBoard() {
 		
-		System.out.printf("Current player: %s%n%n", mancala.getCurrentPlayer());
+		Map<Player, List<Integer>> stonesPerPlayer = 
+				getMancala().getStonesPerPlayer();
 		
-		Map<Player, List<Integer>> stonesPerPlayerMap = 
-				mancala.getStonesPerPlayer();
+		int size = stonesPerPlayer.get(Player.white).size();
+		
+		System.out.printf("   (%9d)%n", 
+				stonesPerPlayer.get(Player.black).get(size-1)
+		);
+		for (int index = 0; index < size - 1; index++) {
+			
+			/* 
+			 * The reversed index. Counting backwards from the black players
+			 * kalaha. 
+			 */
+			int xedni = size - 2 - index;
+			
+			String format;
+			if (getMancala().getCurrentPlayer().equals(Player.white)) {
+				
+				format = "%3$2d [%-3d] [%3d]%n";
+			} else {
+				
+				format = "   [%-3d] [%3d] %4$-2d%n";
+			}
+			
+			System.out.printf(format,
+					stonesPerPlayer.get(Player.white).get(index),
+					stonesPerPlayer.get(Player.black).get(size - 2 - index),
+					index,
+					xedni
+			);
+		}
+		System.out.printf("   (%-9d)%n%n", 
+				stonesPerPlayer.get(Player.white).get(size-1)
+		);
+	}
+	
+	/**
+	 * Outputs the playable options to the standard out.
+	 */
+	private void showOptions() {
+		
+		List<Integer> options = getMancala().options();
+		
+		System.out.println("Playable bowls are at the indices:");
+		System.out.printf("%d", options.get(0));
+		for (Integer index : options.subList(1, options.size())) {
+			
+			System.out.printf(", %d", index);
+		}
+		System.out.println(); /* Newline after the options. */
 	}
 		
 	/**
@@ -162,6 +230,11 @@ public class StartGame {
 		getMancalaBuilder().setNumberOfStones(numberOfStones);
 	}
 	
+	/**
+	 * Returns the {@code Mancala} which is governed by this {@code StartGame}.
+	 * 
+	 * @return The {@code Mancala} which is governed by this {@code StartGame}.
+	 */
 	private Mancala getMancala() {
 		
 		if (mancala == null) {
