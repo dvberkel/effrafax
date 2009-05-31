@@ -1,11 +1,15 @@
 package org.effrafax.game.mancala.view.cli;
 
-import java.util.Map;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Map;
 
 import org.effrafax.game.mancala.Mancala;
 import org.effrafax.game.mancala.MancalaBuilder;
 import org.effrafax.game.mancala.domain.Player;
+import org.effrafax.game.mancala.message.ExceptionMessage;
 
 public class StartGame {
 	
@@ -20,9 +24,17 @@ public class StartGame {
 				
 		while (! game.isFinished()) {
 			
-			game.showStatus();			
-			game.finished();
+			game.showStatus();
+			game.receiveOption();
+			
+			if (game.getMancala().isFinished()) {
+				
+				game.finished();
+			}
 		}
+		
+		game.showBoard();
+		game.showResult();
 	}
 	
 	/**
@@ -176,7 +188,79 @@ public class StartGame {
 		}
 		System.out.println(); /* Newline after the options. */
 	}
+	
+	private void showResult() {
 		
+		Map<Player, Integer> score = getMancala().score();
+		Integer whiteScore = score.get(Player.white);
+		Integer blackScore = score.get(Player.black);
+				
+		if (whiteScore.equals(blackScore)) {
+			
+			System.out.println("Game ended in a draw.");
+		} else if (blackScore < whiteScore) {
+			
+			System.out.printf("White won by %d stones", 
+					whiteScore - blackScore
+			);
+		} else {
+			
+			/* Black won the game */
+			
+			System.out.printf("Black won by %d stones", 
+					whiteScore - blackScore
+			);
+		}		
+	}
+	
+	/**
+	 * Receive an options from standard in and plays that option.
+	 */
+	private void receiveOption() {
+		
+		boolean receivedOption = false;
+
+		while (! receivedOption) {
+			
+			System.out.println("Which do you want to play? ('q' to quit.)");	    
+			try {
+
+				BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		        
+				String option = in.readLine();
+		        if (option.toLowerCase().equals("q")) {
+		        	
+		        	finished();
+		        	receivedOption = true;
+		        } else {
+		        	
+		        	Integer index = Integer.valueOf(option);
+		        	if (! getMancala().playable(index)) {
+		        		
+		        		System.out.println(
+		        				"Please enter one of the playable options."
+		        		);
+		        	} else {
+		        		
+		        		receivedOption = true;
+		        		getMancala().play(index);
+		        	}
+		        }
+		    } catch (IOException e) {
+		    	
+		    	System.out.println(ExceptionMessage.UNRECOVERABLE.toString());
+		    	finished();
+		    	receivedOption = true;
+		    } catch (NumberFormatException nfe) {
+		    	
+		    	System.out.println(ExceptionMessage.VALID_OPTION.toString());
+		    } catch (IllegalArgumentException iae) {
+		    	
+		    	System.out.println(ExceptionMessage.VALID_OPTION.toString());
+		    }
+		}
+	}
+	
 	/**
 	 * Returns if the game is finished occording to this {@code StartGame}.
 	 *

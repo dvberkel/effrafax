@@ -151,6 +151,20 @@ public class Mancala {
 	}
 	
 	/**
+	 * Returns if a the {@code Bowl} at {@code index} is playable;
+	 * 
+	 * @param index The index of the {@code Bowl} under scrutiny.
+	 * @return {@code true} if the {@code Bowl} at {@code index} is playable
+	 * 		{@code false} otherwise.
+	 */
+	public boolean playable(Integer index) {
+		
+		Bowl bowl = getBowlAtIndex(index);
+		
+		return playable(bowl);
+	}
+	
+	/**
 	 * Plays the {@code Bowl} {@code index} skips from the start {@code Bowl}
 	 * from the current {@code Player}. An {@code IllegalArgumentException} is
 	 * thrown if that {@code Bowl} is not playable.
@@ -175,6 +189,15 @@ public class Mancala {
 		}
 	}
 	
+	/**
+	 * Returns a {@code Map<Player,List<Integer>>}. This {@code Map} holds
+	 * per {@code Player} a {@code List<Integer>}. Each {@code List}
+	 * determines the number of stones each {@code Bowl} contains, starting
+	 * at the specific {@code Player}s start {@code Bowl}.
+	 * 
+	 * @return A {@code Map<Player,List<Integer>>} which holds the number of
+	 * 		stones contained by each {@code Bowl} per {@code Player}.
+	 */
 	public Map<Player, List<Integer>> getStonesPerPlayer() {
 		
 		Map<Player,List<Integer>> stonesPerPlayer = 
@@ -195,5 +218,43 @@ public class Mancala {
 		}
 		
 		return stonesPerPlayer;
+	}
+	
+	/**
+	 * Returns if this {@code Mancala} game is finished. A game is finished
+	 * if the current {@code Player} does not have any valid options to 
+	 * play.
+	 * 
+	 * @return {@code true} if the game is finished, {@code false} otherwise.
+	 */
+	public boolean isFinished() {
+		
+		return options().size() == 0;
+	}
+	
+	/**
+	 * Returns the score both {@code Player}s currently have. The score is 
+	 * determined by counting the number of stones said {@code Player} owns.
+	 * 
+	 * @return A {@code Map<Integer>} which represents the score per 
+	 * 		{@code Player}.
+	 */
+	public Map<Player, Integer> score() {
+	
+		Map<Player, Integer> score = new HashMap<Player, Integer>();
+		
+		Map<Player, List<Integer>> stonesPerPlayer = getStonesPerPlayer();
+		for (Player player : Player.values()) {
+			
+			Integer playerScore = 0;
+			for (Integer numberOfStones : stonesPerPlayer.get(player)) {
+				
+				playerScore += numberOfStones;
+			}
+			
+			score.put(player, playerScore);
+		}
+		
+		return score;
 	}
 }
