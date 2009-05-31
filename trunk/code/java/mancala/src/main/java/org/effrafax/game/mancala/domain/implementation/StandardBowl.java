@@ -45,7 +45,7 @@ public class StandardBowl extends AbstractBowl {
 			return getNextBowl().receiveHeap(heap);
 		} else {
 			
-			if (this.countStones() == 1) {
+			if (countStones() == 1 && getOwner().equals(heap.getOwner())) {
 				
 				Heap capturedHeap = getOppositeBowl().captureHeap();
 				capturedHeap.addStone(getHeap());
