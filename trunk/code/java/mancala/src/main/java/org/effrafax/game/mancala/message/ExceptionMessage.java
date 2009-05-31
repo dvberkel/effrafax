@@ -24,7 +24,9 @@ public enum ExceptionMessage {
 	OWNER("a owner argument exception."),
 	OWNER_NULL(OWNER, NON_NULL),
 	OWNER_ASSIGNED(OWNER, ALREADY_ASSIGNED),
-	NOT_PLAYABLE("the bowl is not playable.");
+	NOT_PLAYABLE("the bowl is not playable."),
+	VALID_OPTION("please enter a valid option."),
+	UNRECOVERABLE("Aaaaargh, the pain, the agony, help me, help!");
 
 	private String message = "an exception has occured";
 	private ExceptionMessage[] exceptionMessages = {};	
