@@ -44,6 +44,7 @@ public class Status extends WebPage {
 		add(new Label("currentPlayer", mancala.getCurrentPlayer().toString()));
 		
 		Map<Player,List<Integer>> stonesPerPlayer = mancala.getStonesPerPlayer();
+		Player currentPlayer = mancala.getCurrentPlayer();
 		for (Player player : Player.values()) {
 			
 			List<Integer> stones = stonesPerPlayer.get(player);
@@ -51,7 +52,16 @@ public class Status extends WebPage {
 				
 				String currentBowlId = player.toString() + BOWL_ID + index;
 				
-				add(new Label(currentBowlId, stones.get(index).toString()));
+				Integer numberOfStones = stones.get(index);
+				if (numberOfStones == 0 || ! player.equals(currentPlayer)) {
+					
+					/* This bowl is not playable. */
+					add(new Label(currentBowlId, stones.get(index).toString()));
+				} else {
+					
+					/* This bowl is playable. */
+					add(new Label(currentBowlId, "-" + stones.get(index)));
+				}
 			}
 			
 			String kalahaId = player.toString() + KALAHA_ID;
