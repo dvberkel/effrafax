@@ -33,6 +33,11 @@ public class Status extends WebPage {
 	
 	public Status() {
 		
+		showStatus();
+	}
+	
+	public void showStatus() {
+		
 		Mancala mancala = getMancala();
 		
 		add(new Label("plyCount", "0"));
