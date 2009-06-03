@@ -51,7 +51,6 @@ public class Status extends MancalaPage {
 				} else {
 					
 					createLink(player, index, numberOfStones);
-					//add(new Label(currentStonesId, stones.get(index).toString()));
 				}
 			}
 			
@@ -85,15 +84,14 @@ public class Status extends MancalaPage {
 			@Override
 			public void onClick() {
 				
-				Mancala mancala = getMancala();
+				getMancala().play(index);
 				
-				mancala.play(index);
-				if (mancala.isFinished()) {
+				if (getMancala().isFinished()) {
 					
 					setResponsePage(Result.class);
 				} else {
 					
-					/* We are not finished so return to this page. */
+					setResponsePage(Status.class);
 				}
 			}
 		}).add(new Label(stonesId, numberOfStones.toString())));
