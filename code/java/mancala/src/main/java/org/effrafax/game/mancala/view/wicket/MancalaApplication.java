@@ -4,6 +4,9 @@
 package org.effrafax.game.mancala.view.wicket;
 
 
+import org.apache.wicket.Request;
+import org.apache.wicket.Response;
+import org.apache.wicket.Session;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.settings.IResourceSettings;
 
@@ -35,5 +38,14 @@ public class MancalaApplication extends WebApplication {
 		resourceSettings.setResourceStreamLocator(new AnnotatedLocator());
 
 	}
+
+	/* (non-Javadoc)
+	 * @see org.apache.wicket.protocol.http.WebApplication#newSession(org.apache.wicket.Request, org.apache.wicket.Response)
+	 */
+	@Override
+	public Session newSession(Request request, Response response) {
+
+		return new MancalaSession(request);
+	}	
 
 }
