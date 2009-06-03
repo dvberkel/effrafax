@@ -10,7 +10,7 @@ deployed in a webcontainer.
 
 == Package Details ==
 
-The packages present in the mancala 
+The packages present in mancala.
 
   * org.effrafax.game.mancala
     * `abstract class` !BoardFactory
