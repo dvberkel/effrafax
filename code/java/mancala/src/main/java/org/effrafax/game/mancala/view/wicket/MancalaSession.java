@@ -47,5 +47,12 @@ public class MancalaSession extends WebSession {
 		
 		return mancala;
 	}
-
+	
+	/**
+	 * Resets the reference to the {@code Mancala} game.
+	 */
+	public void newMancala() {
+		
+		mancala = null;
+	}
 }
