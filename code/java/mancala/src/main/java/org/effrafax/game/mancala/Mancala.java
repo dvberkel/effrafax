@@ -3,6 +3,7 @@
  */
 package org.effrafax.game.mancala;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +17,8 @@ import org.effrafax.game.mancala.message.ExceptionMessage;
  * @author dwanrooy
  *
  */
-public class Mancala {
+@SuppressWarnings("serial")
+public class Mancala implements Serializable {
 	
 	private Player currentPlayer = null;
 	Map<Player, Bowl> startBowlMap = null;

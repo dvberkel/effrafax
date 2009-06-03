@@ -3,6 +3,8 @@
  */
 package org.effrafax.game.mancala.domain;
 
+import java.io.Serializable;
+
 import org.effrafax.game.mancala.message.ExceptionMessage;
 
 /**
@@ -11,7 +13,8 @@ import org.effrafax.game.mancala.message.ExceptionMessage;
  * @author dwanrooy
  * 
  */
-public class Heap {
+@SuppressWarnings("serial")
+public class Heap implements Serializable {
 	
 	private int numberOfStones = 0;
 	private Player owner = null;

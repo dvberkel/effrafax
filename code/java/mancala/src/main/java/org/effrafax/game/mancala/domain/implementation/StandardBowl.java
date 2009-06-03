@@ -12,6 +12,7 @@ import org.effrafax.game.mancala.domain.Player;
  * @author dwanrooy
  *
  */
+@SuppressWarnings("serial")
 public class StandardBowl extends AbstractBowl {
 	
 	public StandardBowl() {

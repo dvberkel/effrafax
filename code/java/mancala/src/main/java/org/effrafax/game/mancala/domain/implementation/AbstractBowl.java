@@ -3,6 +3,8 @@
  */
 package org.effrafax.game.mancala.domain.implementation;
 
+import java.io.Serializable;
+
 import org.effrafax.game.mancala.domain.Bowl;
 import org.effrafax.game.mancala.domain.Heap;
 import org.effrafax.game.mancala.domain.Kalaha;
@@ -15,7 +17,8 @@ import org.effrafax.game.mancala.message.ExceptionMessage;
  * @author dwanrooy
  *
  */
-public abstract class AbstractBowl implements Bowl {
+@SuppressWarnings("serial")
+public abstract class AbstractBowl implements Bowl, Serializable {
 
 	private Heap heap = null;
 	private Player owner = null;

@@ -13,6 +13,7 @@ import org.effrafax.game.mancala.message.ExceptionMessage;
  * @author dwanrooy
  *
  */
+@SuppressWarnings("serial")
 public abstract class AbstractKalaha extends AbstractBowl implements Kalaha {
 	
 	public AbstractKalaha() {
