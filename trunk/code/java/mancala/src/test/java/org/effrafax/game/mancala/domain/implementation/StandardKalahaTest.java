@@ -18,6 +18,7 @@ import org.junit.Test;
  */
 public class StandardKalahaTest {
 	
+	@SuppressWarnings("serial")
 	@Test
 	public void testReceiveHeap() {
 		

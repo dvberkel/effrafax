@@ -10,6 +10,7 @@ import org.effrafax.game.mancala.domain.Player;
  * @author dwanrooy
  * 
  */
+@SuppressWarnings("serial")
 public class MockKalaha extends AbstractKalaha {
 	
 	public MockKalaha() {

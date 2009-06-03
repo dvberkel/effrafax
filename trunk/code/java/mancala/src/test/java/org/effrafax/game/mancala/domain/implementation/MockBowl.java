@@ -10,6 +10,7 @@ import org.effrafax.game.mancala.domain.Player;
  * @author dwanrooy
  *
  */
+@SuppressWarnings("serial")
 public class MockBowl extends AbstractBowl {
 
 	public MockBowl() {
