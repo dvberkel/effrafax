@@ -1,0 +1,45 @@
+#summary Description of mancala
+
+= Introduction =
+
+mancala provides a showcase of DDD and the rudimentary use of wicket. It can readily be
+deployed in a webcontainer.
+
+
+= Details =
+
+== Package Details ==
+
+The packages present in the mancala 
+
+  * org.effrafax.game.mancala
+    * `abstract class` BoardFactory
+    * `enum` BowlFactory
+    * `class` Mancala
+    * `class` MancalaBuilder
+  * org.effrafax.game.mancala.domain
+    * `interface` Bowl
+    * `class` Heap
+    * `interface` Kalaha
+    * `enum` Player
+  * org.effrafax.game.mancala.domain.implementations
+    * `abstract class` AbstractBowl
+    * `abstract class` AbstractKalaha
+    * `class` StandardBowl
+    * `class` StandardKalaha
+  * org.effrafax.game.mancala.message
+    * `enum` ExceptionMessage
+  * org.effrafax.game.mancala.view.cli
+    * `class` StartGame
+  * org.effrafax.game.mancala.view.wicket
+    * `class` AnnotatedLocator
+    * `class` MancalaApplication
+    * `abstract class` MancalaPage
+    * `class` MancalaSession
+    * `class` Result
+    * `class` Status
+    * `class` Welcome
+  * org.effrafax.game.mancala.view.wicket.annotation
+    * `@interface` DefaultMapping
+    * `@interface` PathMapping
+    * `@interface` PathMappings
