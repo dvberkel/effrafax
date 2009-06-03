@@ -6,18 +6,16 @@ package org.effrafax.game.mancala.view.wicket;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.effrafax.game.mancala.Mancala;
-import org.effrafax.game.mancala.MancalaBuilder;
 import org.effrafax.game.mancala.domain.Player;
 
 /**
  * @author dwanrooy
  *
  */
-public class Status extends WebPage {
+public class Status extends MancalaPage {
 	
 	private static final String BOWL_ID = "BowlNr";
 	private static final String STONES_ID = "StonesNr";
@@ -26,21 +24,6 @@ public class Status extends WebPage {
 	public Status() {
 		
 		showStatus();
-	}
-
-	/**
-	 * Returns the current mancala game.
-	 * 
-	 * @return the current mancala game.
-	 */
-	public Mancala getMancala() {
-		
-		MancalaBuilder builder = new MancalaBuilder();
-		builder.setStartPlayer(Player.white);
-		builder.setNumberOfBowls(6);
-		builder.setNumberOfStones(4);
-		
-		return new Mancala(builder);
 	}
 	
 	/**

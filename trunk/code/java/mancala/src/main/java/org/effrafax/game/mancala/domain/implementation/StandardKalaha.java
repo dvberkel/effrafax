@@ -12,8 +12,9 @@ import org.effrafax.game.mancala.domain.Player;
  * @author dwanrooy
  *
  */
+@SuppressWarnings("serial")
 public class StandardKalaha extends AbstractKalaha {
-	
+
 	public StandardKalaha() {
 		
 		/* default constructor provided for the service loader */
