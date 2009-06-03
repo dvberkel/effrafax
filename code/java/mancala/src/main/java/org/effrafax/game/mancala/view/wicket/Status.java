@@ -60,16 +60,15 @@ public class Status extends WebPage {
 			List<Integer> stones = stonesPerPlayer.get(player);
 			for (int index = 0; index < 6; index++) {
 				
-				String currentStonesId = player.toString() + STONES_ID + index;
-				
 				Integer numberOfStones = stones.get(index);
 				if (numberOfStones > 0 && player.equals(currentPlayer)) {
 					
 					/* This is a playable bowl. */
-					createLink(player, index);
+					createPlayableLink(player, index, numberOfStones);
 				} else {
-				
-					add(new Label(currentStonesId, stones.get(index).toString()));
+					
+					createLink(player, index, numberOfStones);
+					//add(new Label(currentStonesId, stones.get(index).toString()));
 				}
 			}
 			
@@ -84,11 +83,16 @@ public class Status extends WebPage {
 	 * 
 	 * @param player The {@code Player} who owns the bowl.
 	 * @param index The index of the bowl.
+	 * @param numberOfStones The number of stones in this bowl.
 	 */
 	@SuppressWarnings("serial")
-	public void createLink(final Player player, final int index) {
+	public void createPlayableLink(
+			final Player player, 
+			final int index,
+			final Integer numberOfStones) {
 		
-		String bowlId = player.toString() + STONES_ID + index;
+		String bowlId = player.toString() + BOWL_ID + index;
+		String stonesId = player.toString() + STONES_ID + index;
 		
 		add((new Link(bowlId) {
 
@@ -109,6 +113,36 @@ public class Status extends WebPage {
 					/* We are not finished so return to this page. */
 				}
 			}
-		}));
+		}).add(new Label(stonesId, numberOfStones.toString())));
+	}
+	
+	/**
+	 * Creates a link on a a bowl. This should be used if the 
+	 * bowl is not playable.
+	 * 
+	 * @param player The {@code Player} who owns the bowl.
+	 * @param index The index of the bowl.
+	 * @param numberOfStones The number of stones in this bowl.
+	 */
+	@SuppressWarnings("serial")
+	public void createLink(
+			final Player player, 
+			final int index,
+			final Integer numberOfStones) {
+		
+		String bowlId = player.toString() + BOWL_ID + index;
+		String stonesId = player.toString() + STONES_ID + index;
+		
+		add((new Link(bowlId) {
+
+			/* (non-Javadoc)
+			 * @see org.apache.wicket.markup.html.link.Link#onClick()
+			 */
+			@Override
+			public void onClick() {
+				
+				/* We are not finished so return to this page. */
+			}
+		}).add(new Label(stonesId, numberOfStones.toString())));
 	}
 }
