@@ -16,7 +16,7 @@ public abstract class MancalaPage extends WebPage {
 	
 	private Mancala mancala = null;
 	
-	public Mancala getMancala() {
+	protected Mancala getMancala() {
 		
 		// TODO Use a session to retrieve the current mancala
 		if (mancala == null) {

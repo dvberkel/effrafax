@@ -91,8 +91,8 @@ public class Status extends WebPage {
 			final int index,
 			final Integer numberOfStones) {
 		
-		String bowlId = player.toString() + BOWL_ID + index;
-		String stonesId = player.toString() + STONES_ID + index;
+		String bowlId = getBowlId(player, index);
+		String stonesId = getStonesId(player, index);
 		
 		add((new Link(bowlId) {
 
@@ -130,8 +130,8 @@ public class Status extends WebPage {
 			final int index,
 			final Integer numberOfStones) {
 		
-		String bowlId = player.toString() + BOWL_ID + index;
-		String stonesId = player.toString() + STONES_ID + index;
+		String bowlId = getBowlId(player, index);
+		String stonesId = getStonesId(player, index);
 		
 		add((new Link(bowlId) {
 
@@ -144,5 +144,30 @@ public class Status extends WebPage {
 				/* We are not finished so return to this page. */
 			}
 		}).add(new Label(stonesId, numberOfStones.toString())));
+	}
+	
+	/**
+	 * Returns a bowl id given a {@code Player} and a {@code index};
+	 * 
+	 * @param player The {@code Player} who owns the bowl.
+	 * @param index The index of the bowl.
+	 * @return
+	 */
+	private String getBowlId(Player player, int index) {
+		
+		return player.toString() + BOWL_ID + index;
+	}
+	
+	/**
+	 * Returns a stones id given a {@code Player} and a {@code index};
+	 * 
+	 * @param player The {@code Player} who owns the bowl which holds the 
+	 * 		stones.
+	 * @param index The index of the bowl which holds the stones.
+	 * @return
+	 */
+	private String getStonesId(Player player, int index) {
+		
+		return player.toString() + STONES_ID + index;
 	}
 }
