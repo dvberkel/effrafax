@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.link.PageLink;
 import org.effrafax.game.mancala.Mancala;
 import org.effrafax.game.mancala.domain.Player;
 
@@ -33,7 +34,6 @@ public class Status extends MancalaPage {
 		
 		Mancala mancala = getMancala();
 		
-		add(new Label("plyCount", "0"));
 		add(new Label("currentPlayer", mancala.getCurrentPlayer().toString()));
 		
 		Map<Player,List<Integer>> stonesPerPlayer = mancala.getStonesPerPlayer();
@@ -57,6 +57,8 @@ public class Status extends MancalaPage {
 			String kalahaId = player.toString() + KALAHA_ID;
 			add(new Label(kalahaId, stones.get(6).toString()));
 		}
+
+		add(new PageLink("quit", Result.class));
 	}
 	
 	/**

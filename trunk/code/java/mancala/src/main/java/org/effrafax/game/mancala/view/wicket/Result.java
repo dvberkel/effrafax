@@ -6,7 +6,7 @@ package org.effrafax.game.mancala.view.wicket;
 import java.util.Map;
 
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.link.PageLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.effrafax.game.mancala.Mancala;
 import org.effrafax.game.mancala.domain.Player;
 
@@ -24,6 +24,7 @@ public class Result extends MancalaPage {
 	/**
 	 * Constructor
 	 */
+	@SuppressWarnings("serial")
 	public Result() {
 		
 		Mancala mancala = getMancala();
@@ -46,7 +47,18 @@ public class Result extends MancalaPage {
 		
 		add(new Label("result", result));
 		
-		add(new PageLink("start", Status.class));
+		add(new Link("start") {
+
+			/* (non-Javadoc)
+			 * @see org.apache.wicket.markup.html.link.Link#onClick()
+			 */
+			@Override
+			public void onClick() {
+				
+				newMancala();
+				setResponsePage(Status.class);
+			}			
+		});
 	}
 	
 	/**
