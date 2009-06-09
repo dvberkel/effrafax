@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<project>
+
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>org.effrafax</groupId>
+		<artifactId>mancala</artifactId>
+		<version>1.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>mancala-view</artifactId>
+	<packaging>pom</packaging>
+	<name>mancala-view</name>
+
+	<modules>
+		<module>cli</module>
+		<module>wicket</module>
+	</modules>	
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.effrafax</groupId>
+				<artifactId>mancala-domain</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
