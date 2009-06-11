@@ -82,5 +82,17 @@ public class PermutationTest {
 		
 		assertFalse(Permutation.isPermutation(new int[] {1,2}));
 	}
+	
+	@Test 
+	public void testShouldproduceDifferentTranspositions() {
+		
+		Permutation swap = Permutation.swap(2, 0, 1);
+
+		assertEquals(1, swap.mapsTo(0));
+		assertEquals(0, swap.mapsTo(1));
+		
+		assertEquals(2, swap.getDegree());
+				
+	}
 
 }
