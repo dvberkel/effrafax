@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteRule ^info$ http://www.effrafax.org/php/info.php [R=301,L]
+
